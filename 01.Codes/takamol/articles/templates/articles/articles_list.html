@@ -1,0 +1,22 @@
+{% extends 'base_layout.html' %}
+
+{% block content%}
+{% if user.is_authenticated %}    
+<h1>Articles List</h1>
+    <div class="articles">
+    {% for article in articles %}
+        <div class="article">
+            <h2>{{ article.title }}</h2>
+            <p>{{ article.snippet }}</p>
+            <p>{{ article.date }}</p>
+            
+            <p class="author"> <a href="#">Read more</a></p>
+        </div>
+    {% endfor %}
+    </div>
+    {% else %}
+    <h1>Please log in/sign up to see the articles</h1>
+    {% endif %}
+    
+
+{% endblock %}
